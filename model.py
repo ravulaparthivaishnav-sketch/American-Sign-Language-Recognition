@@ -1,45 +1,4 @@
 import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, classification_report
-from sklearn.preprocessing import LabelEncoder
-import joblib
-from sklearn.metrics import confusion_matrix, classification_report
-
-
-# data = pd.read_csv("dataset.csv", header=None)
-
-# x = data.iloc[:,1:]
-# y = data.iloc[:,0]
-
-# encoder = LabelEncoder()
-# y = encoder.fit_transform(y)
-
-# X_train, X_test, y_train, y_test = train_test_split(
-#     x,
-#     y,
-#     test_size=0.5,
-#     random_state=42,
-#     stratify=y
-# )
-
-# model = RandomForestClassifier(n_estimators=300,random_state=42, n_jobs=-1)
-
-# model.fit(X_train, y_train)
-
-# predictions = model.predict(X_test)
-
-# print("Accuracy:", accuracy_score(y_test, predictions))
-
-# joblib.dump(model, "asl_model.pkl")
-# joblib.dump(encoder, "label_encoder.pkl")
-
-
-# print("Model saved!")
-
-
-
-import pandas as pd
 import joblib
 import matplotlib.pyplot as plt
 
@@ -117,21 +76,21 @@ print(classification_report(
 # ----------------------------
 # Confusion Matrix
 # ----------------------------
-# cm = confusion_matrix(y_test, pred)
+cm = confusion_matrix(y_test, pred)
 
-# print("\nConfusion Matrix:\n")
-# print(cm)
+print("\nConfusion Matrix:\n")
+print(cm)
 
-# disp = ConfusionMatrixDisplay(
-#     confusion_matrix=cm,
-#     display_labels=encoder.classes_
-# )
+disp = ConfusionMatrixDisplay(
+    confusion_matrix=cm,
+    display_labels=encoder.classes_
+)
 
-# fig, ax = plt.subplots(figsize=(12, 12))
-# disp.plot(ax=ax, cmap="Blues", xticks_rotation=90)
-# plt.title("ASL Letter Confusion Matrix")
-# plt.tight_layout()
-# plt.show()
+fig, ax = plt.subplots(figsize=(12, 12))
+disp.plot(ax=ax, cmap="Blues", xticks_rotation=90)
+plt.title("ASL Letter Confusion Matrix")
+plt.tight_layout()
+plt.show()
 
 # ----------------------------
 # Cross Validation
