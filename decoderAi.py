@@ -30,7 +30,6 @@ RunningMode = mp.tasks.vision.RunningMode
 
 
 MODEL_PATH = (
-    "/Users/vaishnavravulaparthi/Python_Projects/ASL/"
     "hand_landmarker.task"
 )
 
